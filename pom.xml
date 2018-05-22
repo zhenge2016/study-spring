@@ -6,11 +6,128 @@
 
     <groupId>com.taobao.zhenge</groupId>
     <artifactId>study-spring</artifactId>
-    <packaging>pom</packaging>
+    <packaging>pom</packaging>   <!-- 父模块必须为pom -->
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>biz</module>
         <module>web</module>
+        <module>biz</module>
     </modules>
+
+    <properties>
+        <spring-version>5.0.5.RELEASE</spring-version>
+        <project-version>1.0-SNAPSHOT</project-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- +++++++++++++++++++++++++ -->
+            <!-- project module -->
+            <!-- +++++++++++++++++++++++++ -->
+            <dependency>
+                <groupId>com.taobao.zhenge</groupId>
+                <artifactId>study-spring-biz</artifactId>
+                <version>${project-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.zhenge</groupId>
+                <artifactId>study-spring-web</artifactId>
+                <version>${project-version}</version>
+            </dependency>
+
+            <!-- +++++++++++++++++++++++++ -->
+            <!-- spring相关 -->
+            <!-- +++++++++++++++++++++++++ -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+
+            <!-- +++++++++++++++++++++++++ -->
+            <!-- servlet+jsp -->
+            <!-- +++++++++++++++++++++++++ -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>2.2</version>
+            </dependency>
+
+
+            <!-- +++++++++++++++++++++++++ -->
+            <!-- 工具 -->
+            <!-- +++++++++++++++++++++++++ -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>24.0-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.47</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.9.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.7</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.20</version>
+            </dependency>
+
+            <!-- +++++++++++++++++++++++++ -->
+            <!-- 测试 -->
+            <!-- +++++++++++++++++++++++++ -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

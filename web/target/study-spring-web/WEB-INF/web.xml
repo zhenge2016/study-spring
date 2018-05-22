@@ -1,0 +1,41 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!-- 巨坑：idea自动生成的web.xml无法识别model中的数据，需要在web-app中加上下面一段代码即可 -->
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <display-name>spring-study</display-name>
+    <description>spring框架学习</description>
+
+    <!-- 定义上下文参数，可以定义多组
+    <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>***</param-value>
+    </context-param>
+    -->
+
+    <!-- listener必须在servlet和filter之前 -->
+    <!-- 会从WEB—INF目录下查找applicatonContext.xml文件用于初始化bean，或者从上下文参数contextConfigLocation获取路径 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- springMVC-请求分发Servlet -->
+    <!-- 会从WEB-INF目录下查找dispatcher-servlet.xml(文件名的前缀和servlet-name一致)文件用户初始化相关bean -->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
