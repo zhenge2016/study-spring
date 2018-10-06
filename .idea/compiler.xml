@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="biz" />
+        <module name="dao" />
         <module name="web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="biz" target="1.7" />
+      <module name="dao" target="1.5" />
       <module name="study-spring" target="1.5" />
       <module name="web" target="1.7" />
     </bytecodeTargetLevel>

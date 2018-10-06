@@ -119,5 +119,5 @@ public class UserInfoController {
             model.addAttribute("msg", "暂时无法提供服务！");
         }
         return "error";
-    }
+    }ex
 }
